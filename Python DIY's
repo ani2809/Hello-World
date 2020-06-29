@@ -1,0 +1,19 @@
+Is your feature request related to a problem? Please describe.
+
+The question I want to answer is e.g. “what is the latest release for a given Python version X.Y”?
+
+I build a CPython installation automation tool for Windows. It can be used to install a Python directly from the command line, e.g. pythonup install 3.6. Currently I maintain a hard-coded mapping file to point 3.6 to 3.6.7, but this means I need to release a new version every time CPython does.
+
+I wish to automate the process by asking the python.org API for this information, but the current API design makes it very awkward. From what I can tell, I need to
+
+Request /downloads/release/ to get a long list of available releases.
+Parse the name manually to find releases starting with 3.6., and choose the latest.
+Parse the URI to get the release ID.
+Request /downloads/release_file/ with the request ID to get a list of files for that release.
+Parse the file names to find what I want.
+Describe the solution you'd like
+
+There are several things I would like to have to make the process more robust, but things that would benefit my workflow most would be
+
+Allow more advanced filtering on /downloads/release/. The most ideal is like version_xy=3.6, but even something like slug__startswith=python-36 would be tremendously helpful.
+Add the resource ID in /downloads/release/’s returned payload, or allow /downloads/release_file/ to be filtered on slug or resource URI. Currently release only has slug and resource_uri, but neither of them can be used to filter release_file.
