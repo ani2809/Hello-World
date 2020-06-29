@@ -1,0 +1,6 @@
+### Create a new stable branch of Ohai
+
+On your local machine fork the current master branch to a new stable branch. For example: `git checkout -b 15-stable`. You’ll then want to edit the Expeditor config.yml file to update the branch configs like this:
+On your local machine fork the current master branch to a new stable branch. For example: `git checkout -b 15-stable`. You'll then want to edit the Expeditor config.yml file to update the branch configs like this:
+
+https://github.com/chef/ohai/commit/ad208165619425dd7886b2de3f168b49ded25146
